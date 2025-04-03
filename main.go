@@ -22,7 +22,18 @@ func consultaDePrueba() {
 		fmt.Println("---------------------------")
 	}
 }
+
+func cargarUsuario(doc int, nombre string, mail string) {
+	newUsr := model.Usuario{Documento: doc, Nombre: nombre, Mail: mail}
+
+	db.DB.Omit("created_at", "updated_at", "deleted_at").Create(&newUsr)
+	fmt.Println("seee")
+
+}
+
 func main() {
 	conectarDb()
+	cargarUsuario(11222333, "Rama", "rama@gmail.com")
+
 	consultaDePrueba()
 }
