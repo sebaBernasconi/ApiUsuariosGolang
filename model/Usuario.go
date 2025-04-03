@@ -2,31 +2,46 @@ package model
 
 import (
 	"fmt"
-	"time"
+
+	"gorm.io/gorm"
 )
 
 type Usuario struct {
-	documento           int
-	nombre              string
-	mail                string
-	ultimaActualizacion time.Time
+	gorm.Model
+
+	Documento int
+	Nombre    string
+	Mail      string
 }
 
 // Constructor
-func NuevoUsuario(doc int, nombre string, mail string, ultimaActualizacion time.Time) *Usuario {
-	return &Usuario{documento: doc, nombre: nombre, mail: mail, ultimaActualizacion: ultimaActualizacion}
+func NuevoUsuario(doc int, Nombre string, Mail string) *Usuario {
+	return &Usuario{Documento: doc, Nombre: Nombre, Mail: Mail}
 }
 
 func (u *Usuario) ModificarMail(nueviMail string) {
-	u.mail = nueviMail
-	u.ultimaActualizacion = time.Now()
+	u.Mail = nueviMail
 	fmt.Println("Mail actualizado con exito")
 }
 
 func (u Usuario) MostrarDatos() {
-	fmt.Println("Doc: ", u.documento)
-	fmt.Println("Nombre: ", u.nombre)
-	fmt.Println("Mail: ", u.mail)
-	fmt.Println("Ultima Actualizacion: ", u.ultimaActualizacion)
+	fmt.Println("Doc: ", u.Documento)
+	fmt.Println("Nombre: ", u.Nombre)
+	fmt.Println("Mail: ", u.Mail)
+
+}
+
+func (u *Usuario) GetUserDoc() int {
+	return u.Documento
+
+}
+
+func (u *Usuario) GetUserName() string {
+	return u.Nombre
+
+}
+
+func (u *Usuario) GetUserMail() string {
+	return u.Mail
 
 }
