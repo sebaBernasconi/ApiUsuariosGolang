@@ -30,18 +30,3 @@ func (u Usuario) MostrarDatos() {
 	fmt.Println("Mail: ", u.Mail)
 
 }
-
-func (u *Usuario) GetUserDoc() int {
-	return u.Documento
-
-}
-
-func (u *Usuario) GetUserName() string {
-	return u.Nombre
-
-}
-
-func (u *Usuario) GetUserMail() string {
-	return u.Mail
-
-}

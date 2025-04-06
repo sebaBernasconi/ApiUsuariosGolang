@@ -13,7 +13,7 @@ type UsuarioServiceimpl struct {
 	usuarios []model.Usuario
 }
 
-// Constructor con puntero al servicio
+// Constructor con puntero a la estructura del servicio
 func New() UsuarioService {
 	return &UsuarioServiceimpl{}
 }
