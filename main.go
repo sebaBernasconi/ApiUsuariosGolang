@@ -22,6 +22,7 @@ func consultaDePrueba() {
 		fmt.Println("---------------------------")
 	}
 }
+
 func main() {
 	conectarDb()
 	consultaDePrueba()
